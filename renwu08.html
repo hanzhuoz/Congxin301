@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>从心预订</title>
+	<meta charset = "UTF-8">
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		ul{
+			list-style: none;
+		}
+		#top{
+            height: 50px;
+            padding: 5px 200px;
+            background-color:#FF8C00;
+		}
+        #top #right1{
+            display: inline-block;
+            margin: 10px;
+            font-size: 18px;                
+            float: right;
+        }
+        #top>img{
+            float: left;
+            margin-right: 20px;
+            }
+        #biao{
+            padding: 10px 20px 10px 0px;
+            font-size: 25px;
+            font-family:'YouYuan';
+            font-weight:bold;
+            color: #fff;
+            float: left;
+        }
+        #top #right1 a{
+            text-decoration:none;
+            margin: 3px;
+            color: #fff;
+        }
+		.slide>img{
+			height:450px;
+			width:1200px;
+		}
+		.box1{
+			width:1200px;
+			height:450px;
+			margin:0 auto;
+			position:relative;
+			overflow:hidden;
+            margin-top: 10px;
+            margin-bottom:10px;
+		}
+		#left{
+			display:block;
+			width:30px;
+			height:50px;
+			text-align:center;
+			cursor:pointer;
+			margin-top:200px;
+			line-height:50px;
+			background:#FF8C00;
+			position:absolute;
+            opacity:0;
+            float:left;
+            margin-left:15px;
+		}
+		#right{
+    		display:block;
+    		width:30px;
+    		height:50px;
+    		text-align:center;
+    		cursor:pointer;
+            margin-top:200px;
+            line-height: 50px;
+            background: #FF8C00;
+            position:absolute;
+            opacity:0;
+            float:left;
+            margin-left:1155px;
+        }
+		.slider{
+			width:7200px;
+			position:absolute;
+			left:-1200px;
+		}
+		.slide{
+			/*overflow:hidden;*/
+			float:left;
+		}
+		.nav{
+    		margin-left:500px;
+    		margin-top:400px;
+    	}
+		.nav>li{
+    		float:left;
+    		width:20px;
+    		height:20px;
+    		background: #ccc;
+    		cursor:pointer;
+    		margin:0 10px;
+            position:relative;
+            text-align:center;
+            border-radius: 50%;
+		    font-size:14px;
+    	}
+    	li.active{
+    		background-color:#FF8C00;
+    		color:#000;
+    	}
+    	#main{
+    		width:1200px;
+    		height:1510px;
+    		margin:0 auto;
+    		/*border: 1px solid black;*/
+    	}
+    	#introduce{
+            width:900px;
+            height:1500px;
+            /*border:1px solid black;*/
+            margin-top:4px;
+            margin-left:4px;
+            float:left;
+    	}
+        #introduction{
+            width:890px;
+            height:500px;
+            /*border:1px solid black;*/
+            padding-left: 2px;
+        }
+        #serve{
+            height:50px;
+            /*border:1px solid black;*/
+        }
+        #itr{
+            color:#FF8C00;
+            font-size:30px;
+            font-family: "华文行楷";
+        }
+        #introduction>p{
+            text-indent: 2em;
+            line-height: 30px;
+            font-family: "楷体";
+        }
+        #net{
+
+            font-size:18px;
+            font-weight:bold;
+            font-family: "楷体";
+        }
+        #other{
+            font-family: "华文行楷";
+            line-height: 30px;
+        }
+        #serve{
+            padding-left:20px;
+            font-size:18px;
+            font-family: "楷体";
+        }
+        #serve>img{
+            width:20px;
+            height:20px;
+        }
+        #periphery{
+            height:450px;
+            width:890px;
+            /*border:1px solid black;*/
+        }
+        #pe{
+            color:#FF8C00;
+            height:30px;
+            font-size:30px;
+            /*border:1px solid black;*/
+            font-family: "华文行楷";
+        }
+        .pe{
+            height:395px;
+            width:440px;
+            /*border-left:1px dashed #FF8C00;
+            border-right:1px dashed #FF8C00;*/
+            float:left;
+
+        }
+        .pe>p{
+            line-height: 40px;
+            font-family: "楷体";
+            text-decoration:underline;
+        }
+        #warn{
+            height:300px;
+            width:890px;
+            /*border:1px solid black;*/
+            line-height:30px;
+            font-family: "楷体";
+        }
+        #title{
+            font-family: "华文行楷";
+            font-size:30px;
+            color:#FF8C00;
+        }
+        #wrap{
+            width:890px;
+            height:250px;
+           /* border:1px solid black;*/
+            color:#FF8C00;
+            font-family: "华文行楷";
+            font-size:30px;
+        }
+        #mark{
+            width:700px;
+            height:200px;
+            margin:0 auto;
+           /* border:1px solid black;*/
+        }
+        #btn1{
+           /* background:#FF8C00;*/ 
+            color:#FF8C00;
+        }
+        #bottom{
+            height: 210px;
+            background-color: #2e2e2e;
+            color: #fff;
+        }
+        .f_top{
+            color: #FF8C00;
+            margin: 0px 150px 0px 150px;
+            border-bottom: 1px solid #FFA500;   
+        }
+        .f_mid{
+            text-align: center;
+            line-height: 37px;
+            padding-top: 10px;
+            font-size: 15px;
+        }
+        .f_bottom{
+            text-align: center;
+            line-height: 27px;
+            font-size: 10px;
+        }
+        .topl{
+            display: inline-block;
+            padding-right: 200px;
+        }
+        .toplm{
+            display: inline-block;
+            }
+         #top1{
+            font-size: 20px;
+            margin: 10px 0px 10px 0px;
+        }
+         .top2{
+            font-size: 15px;
+            margin: 10px 0px 10px 0px;
+        }
+        .sidey{
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 50px;
+        }
+        .sidery{
+            height: 45px;
+            width: 35px;
+            border-bottom: 1.5px solid #606260;
+            margin: 10px 5px 5px 8px;
+        }
+        #book{
+            width:285px;
+            border:1px solid #FF8C00;
+            height:500px;
+            float:left;
+            margin-left:2px;
+            margin-top:4px;
+        }
+        h1{
+            font-family:"华文行楷";
+            font-size:30px;
+            text-align:center;
+            color:#FF8C00;
+        }
+        .message{
+            height:55px;
+            margin-left:50px;
+        }
+        input{
+            height:30px;
+            border:1px #FF8C00 solid;
+        }
+        select{
+            height:30px;
+            border:1px #FF8C00 solid;
+        }
+        #btn2{
+            margin-left:50px;
+            background:#FF8C00; 
+            height:30px;
+            width:150px;
+        }
+	</style>
+</head>
+<body>
+    <div id="top">
+        <img src="img/logo.png" width="55px" height="50px">
+        <div id="biao">从心预定</div>
+            <div id="right1">
+                <a href="index.html">首页</a>
+                <a href="">租车</a>
+                <a href="big.html">观光和活动</a>
+                <a href="login-0.html">登录</a>
+                <a href="login-2.html">注册</a>
+                <a href="">帮助</a>
+            </div>  
+        </div>
+    </div>
+	<div class = "big" id = "box">
+	<div class = "box1" id = "box1">
+		<div class = "slider" style = "left:-1200px" id = "slider">
+		    <div class = "slide"> <img src = "img/B4.jpg" alt = ""/></div>
+		    <div class = "slide"> <img src = "img/B1.jpg" alt = ""/></div>
+		    <div class = "slide"> <img src = "img/B2.jpg" alt = ""/></div>
+		    <div class = "slide"> <img src = "img/B3.jpg" alt = ""/></div>
+		    <div class = "slide"> <img src = "img/B4.jpg" alt = ""/></div>
+		    <div class = "slide"> <img src = "img/B1.jpg" alt = ""/></div>
+	    </div>
+	    <span id = "left"><</span>
+	    <span id = "right">></span>
+	    <ul class = "nav" id = "nav">
+	    	<li class = "active">1</li>
+	    	<li>2</li>
+	    	<li>3</li>
+	    	<li>4</li>
+	    </ul>
+	</div>
+    <div id = "main">
+    	<div id = "introduce">
+         <div id = "introduction">
+             <span id = "itr">introduction:</span>
+             <p>北京华侨大厦位于王府井大街，提供5个餐饮场所、室内游泳池和免费停车场。客房提供免费WiFi，享有市景。酒店距离嘉德艺术中心和中国美术馆均有5分钟步行路程。</p>
+             <p>北京华侨大厦距离东四地铁站（5号线和6号线）约有8分钟步行路程，距离故宫约有5分钟车程，距离天安门广场和中国国家博物馆均约有8分钟车程，距离北海公园约有11分钟车程，距离北京首都国际机场约有45分钟车程，距离北京站约有15分钟车程。</p>
+             <p>北京华侨大厦的客房配有空调和供暖设施。每间客房均提供平板有线电视、保险箱、吹风机、迷你吧和沏茶/咖啡设施。</p>
+             <p>酒店的御香苑中餐厅享有灵感源自故宫的装饰，供应当地风味美食。爱丽舍扒房供应法式菜肴。咖啡厅提供国际风味美食。酒店的酒吧供应饮品。</p>
+             <p>北京华侨大厦提供健身室和美容沙龙。客人可以浸泡在桑拿浴室，或在spa享受放松身心的按摩服务，还可使用酒店的卡拉OK设施唱出自己的心声，或在大堂旅游咨询台安排旅行。酒店为探索客人提供自行车租赁服务。</p>
+             <p>旅友们喜爱东城区的理由：观光、寺庙和历史。根据我们网站上的真实住客点评，这里是北京的人气地区之一。夫妻/情侣特别喜欢这家住宿的位置，为两人住宿体验给出了8.8分。</p>
+             <span id = "net">北京华侨大厦于2002年3月1日开始在Booking.com上接受预订</span><br/>
+             <span id = "other">热门设施/服务:</span>
+             <div id = "serve">
+                 <img src = "img/1.png" alt = ""/>免费无线网络连接
+                 <img src = "img/2.png" alt = ""/>机场班车
+                 <img src = "img/3.png" alt = ""/>家庭间
+                 <img src = "img/4.png" alt = ""/>游泳池
+                 <img src = "img/5.png" alt = ""/>健身中心好
+                 <img src = "img/6.png" alt = ""/> 禁烟客房
+                 <img src = "img/7.png" alt = ""/>酒吧
+             </div>
+         </div>
+         <div id = "periphery">
+             <div id = "pe">periphery:</div>
+             <div class = "pe">
+                 <p>北京人民艺术剧院</p>
+                 <p>东方新天地</p>
+                 <p>中国美术馆</p>
+                 <p>老舍故居</p>
+                 <p>北京市百货大楼</p>
+                 <p>Wumart Supermarket</p>
+                 <p>Sijiminfu Roast Duck Restaurant (Dengshikou) </p>
+                 <p>Dadong Roast Duck Restaurant (Wangfujing)</p>
+                 <p>Beihai Park </p>
+                 <p>Jingshan Park</p>
+             </div>
+             <div class = "pe">
+                 <p>北京南苑机场</p>
+                 <p>东方新天地</p>
+                 <p>北京首都国际机场</p>
+                 <p>王府井大街</p>
+                 <p>南锣鼓巷</p>
+                 <p>故宫博物院</p>
+                 <p>什刹海</p>
+                 <p>天安门广场</p>
+                 <p>雍和宮</p>
+                 <p>天坛</p>
+             </div>
+         </div>
+         <div id = "warn">
+             <p id = "title">预订须知:</p>
+             <p>请注意，如果客人选择以不含早餐的房价预订并在酒店用餐，则将需支付原价享用早餐。 </p>
+             <p>请希望使用加床的客人提前通知酒店，但需视供应情况而定。 </p>
+             <p>请注意，酒店可提供从酒店出发的收费的机场班车服务。时间为07:00至18:00，每60分钟1班。从机场出发的班车的时间为09:00至20:00。请与酒店联系以了解更多详情。 </p>
+             <p>加床的尺寸为宽1米、长2米。 </p>
+             <p>请注意，在游泳池游泳的客人均须佩戴泳帽。酒店提供额外收费的泳帽租赁服务。 </p>
+             <p>对于无信用卡担保的预订，酒店有权在客人入住当日的18:00后转租客房。计划于18:00后抵达的客人应直接与酒店联系。预订确认邮件中附有酒店的联络信息。 </p>
+             <p>客人可以在酒店的餐厅享受自助晚餐的折扣优惠。请于抵达时在前台领取优惠券。</p>
+         </div>
+         <div id = "wrap">
+            <p>❀赠人好评，手有余香❀</p>
+            <div id = "mark">
+                 <div id="pic">
+                    <img src="img/star0.png"  title1="1" name="0"/>
+                    <img src="img/star0.png"  title1="2" name="1"/>
+                    <img src="img/star0.png"  title1="3" name="2"/>
+                    <img src="img/star0.png"  title1="4" name="3"/>
+                    <img src="img/star0.png"  title1="5" name="4"/>
+                    <br/>
+                 </div>
+                 <form>
+                    <textarea cols="80" rows="8" value="" id='txt'></textarea>
+                    <br/>
+                    <button id="btn1">公开评论</button>
+                 </form>
+            </div>
+         </div>
+        </div>
+        <div id = "book">
+             <h1>预定吧</h1>
+             <form>
+                <div class = "message">
+                    <input type = "text" name = "姓名"value = "姓名" id = "m1">
+                </div>
+                <div class = "message">
+                    <input type = "text" name = "身份证号"value = "身份证号" id = "m2">
+                </div>
+                <div class = "message">
+                    <select name = "start">
+                        <option value = "one" selected>2019年12月26日</option>
+                        <option value = "one" >2019年12月27日</option>
+                        <option value = "one" >2019年12月28日</option>
+                        <option value = "one" >2019年12月29日</option>
+                        <option value = "one" >2019年12月30日</option>
+                    </select>
+                </div>
+                <div class = "message">
+                    <select name = "end">
+                        <option value = "one" selected>2019年12月27日</option>
+                        <option value = "one" >2019年12月28日</option>
+                        <option value = "one" >2019年12月29日</option>
+                        <option value = "one" >2019年12月30日</option>
+                        <option value = "one" >2019年12月31日</option>
+                    </select>
+                </div>
+             </form>
+             <button id = "btn2">确认预定</button>
+         </div>
+    </div>
+    <div id="bottom">
+            <div class="f_top">
+                <div class="topl">
+                    <div id="top1">国家/地区</div>
+                    <div class="top2">区域</div>
+                    <div class="top2">城市</div>
+                    <div class="top2">景点</div>
+                </div>
+                <div class="topl">
+                    <div id="top1">公寓</div>
+                    <div class="top2">别墅</div>
+                    <div class="top2">青旅</div>
+                    <div class="top2">度假村</div>
+                </div>
+                <div class="topl">
+                    <div id="top1">租车服务</div>
+                    <div class="top2">订机票</div>
+                    <div class="top2">餐厅定位</div>
+                    <div class="top2">周边景点</div>
+                </div>
+                <div class="topl">
+                    <div id="top1">论坛</div>
+                    <div class="top2">客人点评</div>
+                    <div class="top2">游记攻略</div>
+                    <div class="top2">旅人分享</div>
+                </div>
+                <div class="toplm">
+                    <div id="top1">关于我们</div>
+                    <div class="top2">网站故障报告</div>
+                    <div class="top2">联系我们</div>
+                    <div class="top2">投诉与建议</div>
+                </div>
+            </div>
+            <div class="f_mid">
+                首页&nbsp;&nbsp;|&nbsp;&nbsp;国家地区&nbsp;&nbsp;|&nbsp;&nbsp;
+                租车订票&nbsp;&nbsp;|&nbsp;&nbsp;客服帮助&nbsp;&nbsp;|&nbsp;&nbsp;
+                同行玩乐&nbsp;&nbsp;|&nbsp;&nbsp;旅行基金&nbsp;&nbsp;|&nbsp;&nbsp;
+                法律服务&nbsp;&nbsp;|&nbsp;&nbsp;友情链接
+            </div>
+            <div class="f_bottom">
+                2019-2020&nbsp;从心预定有限公司&nbsp;版权所有
+            </div>
+        </div>
+        <div class="sidey">
+                <div class="sidery"><a href=""><img src="img/cart1.png"></div></a>
+                <div class="sidery"><a href=""><img src="img/qq.png"></div></a>
+                <div class="sidery"><a href=""><img src="img/zuji.png"></div></a>
+                <div class="sidery"><a href=""><img src="img/erweima.png"></div></a>
+                <div class="sidery"><a href=""><img src="img/gotop.png"></div></a>
+        </div>
+</body>
+<script src = animate.js></script>
+<script>
+	var big = document.getElementById("big");
+	var box1 = document.getElementById("box1");
+	var navList = document.getElementById("nav").children;
+	var slider = document.getElementById("slider");
+	var left = document.getElementById("left");
+	var right = document.getElementById("right");
+    var pic = document.getElementById("pic");
+    var imgList = pic.getElementsByTagName("img");
+    var txt = document.getElementById("txt");
+    var btn1 = document.getElementById("btn1");
+    var bnt2 = document.getElementById("btn2");
+    var m1 = document.getElementById("m1");
+    var m2 = document.getElementById("m2");
+    var comments = ["较差","一般","还好","符合","非常符合"];
+	var i = 1;
+	var isMoving =false;
+    var flag = true; 
+	function next(){
+		if(isMoving){
+           return;
+    	}
+    	isMoving = true;
+    	i++;
+        navChange();
+        animate(slider,{left:-1200*i},function(){
+        	if(i==5){
+        		slider.style.left = "-1200px";
+        		i = 1;
+        	}
+        	isMoving = false;
+        });
+	}
+	function prev(){
+		if(isMoving){
+           return;
+    	}
+    	isMoving = true;
+        i--;
+        navChange();
+        animate(slider,{left:-1200*i},function(){
+        	if(i==0){
+        		slider.style.left = "-7200px";
+        		i = 4;
+        	}
+        	isMoving = false;
+        });
+	}
+	var timer = setInterval(next,4000);
+	box1.onmouseover = function(){
+    	animate(left,{opacity:50})
+    	animate(right,{opacity:50})
+    	clearInterval(timer);
+    }
+    box1.onmouseout = function(){
+    	animate(left,{opacity:0})
+    	animate(right,{opacity:0})
+    	timer = setInterval(next,4000);
+    }
+    left.onclick = prev;
+    right.onclick = next;
+    for(var j=0;j<navList.length;++j){
+    	navList[j].idx = j;
+    	if(j==0){
+    		navList[j].onclick = function(){
+    			i=1;
+    			navChange();
+    			animate(slider,{left:-1200})
+    		}
+    	}
+    	else{
+    		navList[j].onclick = function(){
+    			i = this.idx+1;
+    			navChange();
+    			animate(slider,{left:-1200*i})
+    		}
+    	}
+    }
+    function navChange(){
+    	for(var j=0;j<navList.length;++j){
+    		navList[j].className = '';
+    	}
+    	if(i==5||i==1){
+    		navList[0].className = 'active';
+    	}
+    	else if(i==0){
+    		navList[3].className = 'active';
+    	}
+    	else if(i==2){
+            navList[1].className = 'active';
+    	}
+    	else if(i==3){
+            navList[2].className = 'active';
+    	}
+        else if(i==4){
+            navList[3].className = 'active';
+    	}
+    }
+    for(var k=0;k<imgList.length;++k){
+        imgList[k].onmouseover = function(){
+            if(flag==true){
+                var index = this.getAttribute("title1");
+            }
+            else{
+                return;
+            }
+            for(var j = 0;j<index;++j){
+                if(index>2){
+                imgList[j].src = "img/star2.png";
+                }
+                else{
+                imgList[j].src = "img/star1.png";
+                }
+            }
+            txt.innerHTML = comments[index-1];
+            
+        }
+        imgList[k].onmouseout = function(){
+            if(flag==true){
+                var index = this.getAttribute("title1");
+                for(var j = 0;j<index;++j){
+                    imgList[j].src = "img/star0.png";
+                }
+                txt.innerHTML = "";
+            }
+            else{
+                return;
+            }
+        }
+        imgList[k].onclick = function(){
+                flag = !flag;
+        }
+    }
+    btn1.onclick = function(){
+        alert("评论成功！");
+    }
+    m1.onclick = function(){
+        m1.value = "";
+    }
+    m2.onclick = function(){
+        m2.value = "";
+    }
+    btn2.onclick = function(){
+        if(m1.value==""||m2.value==""){
+            alert("姓名或身份证号码不能为空");
+        }
+        else{
+            alert("预定成功！");
+        }
+    }
+</script>
+</html>
